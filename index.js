@@ -11,7 +11,7 @@ const hexToName = hex => {
   }
 }
 
-const getAreaColor = async (url, area) => {
+const getAreaColor = exports.getAreaColor = async (url, area) => {
   try {
     const { data } = await axios(url)
     const { color } = data.areas.find(item => item.area.toLowerCase() === area.toLowerCase())
@@ -21,7 +21,7 @@ const getAreaColor = async (url, area) => {
   }
 }
 
-const setColor = async (url, token, color) => {
+const setColor = exports.setColor = async (url, token, color) => {
   const opts = {
     method: 'put',
     url,

@@ -19,8 +19,12 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "config.js"
+    "config.js",
+    "bin/*"
   ],
+  "bin": {
+    "luftstatus-lifx": "./bin/pollution-light.js"
+  },
   "engines": {
     "node": ">=10.5.0"
   },
@@ -45,6 +49,7 @@
     "standard": "11.0.1"
   },
   "dependencies": {
+    "args": "5.0.0",
     "axios": "0.18.0"
   }
 }
