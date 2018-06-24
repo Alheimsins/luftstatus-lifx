@@ -11,7 +11,7 @@ Get a token from https://cloud.lifx.com/settings, then add the value to `LIGTS_A
 
 ## Find the Area
 
-Pick your area from [this list](https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json), then add the value to `AREA` in [config.json](config.json)
+Pick your area from [this list](https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json), then add the value to `AREA` in [config.js](config.js)
 
 # Start
 
