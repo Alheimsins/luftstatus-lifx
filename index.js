@@ -1,8 +1,8 @@
 const axios = require('axios')
 const config = require('./config')
 
-const convertHexToName = hexColor => {
-  switch (hexColor) {
+const hexToName = hex => {
+  switch (hex) {
     case '6ee86e': return 'green'
     case 'ff9900': return 'orange'
     case 'ff0000': return 'red'
@@ -15,7 +15,7 @@ const getAreaColor = async (url, area) => {
   try {
     const { data } = await axios(url)
     const { color } = data.areas.find(item => item.area.toLowerCase() === area.toLowerCase())
-    return convertHexToName(color)
+    return hexToName(color)
   } catch (error) {
     console.log(error)
   }
@@ -32,7 +32,7 @@ const setColor = async (url, token, color) => {
   }
   try {
     await axios(opts)
-    console.log(`Light switched to ${JSON.stringify(color)}`)
+    console.log(`Light switched to ${color}`)
   } catch (error) {
     console.log(error)
   }
