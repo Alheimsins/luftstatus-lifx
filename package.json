@@ -1,0 +1,50 @@
+{
+  "name": "luftstatus-lifx",
+  "description": "Change the colour of your hue lightbulb according to air pollution status",
+  "version": "1.0.1",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Jonas Maccyber Enge",
+    "email": "jonas.enge@gmail.com",
+    "url": "https://github.com/maccyber"
+  },
+  "contributors": [
+    {
+      "name": "Geir Gåsodden",
+      "email": "geir.gasodden@pythonia.no",
+      "url": "https://github.com/zrrrzzt"
+    }
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "config.js"
+  ],
+  "engines": {
+    "node": ">=10.5.0"
+  },
+  "scripts": {
+    "test": "standard && npm audit",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Lifx",
+    "alheimsins",
+    "pollution"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alheimsins/luftstatus-lifx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alheimsins/luftstatus-lifx/issues"
+  },
+  "homepage": "https://github.com/Alheimsins/luftstatus-lifx#readme",
+  "devDependencies": {
+    "standard": "11.0.1"
+  },
+  "dependencies": {
+    "axios": "0.18.0"
+  }
+}
