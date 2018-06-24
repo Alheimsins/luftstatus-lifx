@@ -25,4 +25,4 @@ const cycle = async () => {
   }
 }
 
-setInterval(() => cycle(), 1000 * 10 * flags.pollIntervalMinutes)
+setInterval(() => cycle(), 1000 * 60 * flags.pollIntervalMinutes)

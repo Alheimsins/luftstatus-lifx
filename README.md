@@ -24,7 +24,7 @@ As long as it runs the script will check the status every `POLL_INTERVAL_MINUTES
 ## Use with cli
 
 ```bash
-npx luftstatus-lifx -a Grenland -t ccb4dfe0b52ae78a1626ef1317093d0354468898ee709a81a891e082149018bb -p 1
+npx luftstatus-lifx -a Grenland -t <LIFX-TOKEN> -p 1
 ```
 
 | Option              | Description               |

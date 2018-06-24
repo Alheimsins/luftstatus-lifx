@@ -3,7 +3,6 @@
   "description": "Change the colour of your hue lightbulb according to air pollution status",
   "version": "1.0.1",
   "license": "MIT",
-  "private": true,
   "author": {
     "name": "Jonas Maccyber Enge",
     "email": "jonas.enge@gmail.com",
