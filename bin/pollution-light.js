@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const args = require('args')
-const { cycle } = require('../index')
+const { cycle, logger } = require('../index')
 
 args
   .option('token', 'lifx token (required)')
@@ -17,8 +17,8 @@ if (!flags.token || !flags.area) {
   args.showHelp()
 }
 
-if (flags.cycle) {
-  console.log(`Updating every ${flags.pollIntervalMinutes} min`)
+if (flags.interval) {
+  logger(`Updating every ${flags.pollIntervalMinutes} min`)
   cycle(flags)
   setInterval(() => cycle(flags), 1000 * 60 * flags.pollIntervalMinutes)
 } else {

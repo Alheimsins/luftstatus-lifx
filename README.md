@@ -7,9 +7,9 @@ Change the colour of your Lifx lightbulb according to air pollution status from 
 
 # Setup
 
-Get a token from https://cloud.lifx.com/settings, then add the value to `LIGTS_API_TOKEN` [config.js](config.js).
+Get a token from https://cloud.lifx.com/settings, then add the value to `url` [config.js](config.js).
 
-Pick your area from [this list](https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json), then add the value to `AREA` in [config.js](config.js)
+Pick your area from [this list](https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json), then add the value to `area` in [config.js](config.js)
 
 # Start
 
@@ -17,7 +17,7 @@ Pick your area from [this list](https://s3.eu-central-1.amazonaws.com/luftstatus
 $ npm start
 ```
 
-As long as it runs the script will check the status every `POLL_INTERVAL_MINUTES` (defaults to 60)
+As long as it runs the script will check the status every `pollIntervalMinutes` (defaults to 60)
 
 ## Use with cli
 

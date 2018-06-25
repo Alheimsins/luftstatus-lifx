@@ -1,5 +1,8 @@
 const axios = require('axios')
+const chalk = require('chalk')
 const config = require('./config')
+
+const logger = exports.logger = (message, state) => state ? console.log(chalk.inverse.bold(' Ɵ ') + ' ' + chalk.red(message)) : console.log(chalk.inverse.bold(' Ɵ ') + ' ' + message)
 
 const getAreaColor = exports.getAreaColor = async (url, area) => {
   try {
@@ -7,7 +10,7 @@ const getAreaColor = exports.getAreaColor = async (url, area) => {
     const { color } = data.areas.find(item => item.area.toLowerCase() === area.toLowerCase())
     return color
   } catch (error) {
-    console.log(error)
+    logger(error.message, 'error')
   }
 }
 
@@ -22,9 +25,9 @@ const setColor = exports.setColor = async (url, token, color) => {
   }
   try {
     await axios(opts)
-    console.log(`Light switched to ${color}`)
+    logger(`Light switched to ${color}`)
   } catch (error) {
-    console.log(error)
+    logger(error.message, 'error')
   }
 }
 
@@ -35,9 +38,11 @@ const cycle = exports.cycle = async (options = {}) => {
     const color = await getAreaColor(opts.serviceUrl, opts.area)
     await setColor(opts.url, opts.token, color)
   } catch (error) {
-    console.log(error)
+    logger(error.message, 'error')
   }
 }
 
-cycle()
-setInterval(() => cycle(), 1000 * 60 * config.pollIntervalMinutes)
+if (require.main === module) {
+  cycle()
+  setInterval(() => cycle(), 1000 * 60 * config.pollIntervalMinutes)
+}
