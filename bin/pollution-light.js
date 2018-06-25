@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 const args = require('args')
+const chalk = require('chalk')
 const { cycle, logger } = require('../index')
 
 args
   .option('token', 'lifx token (required)')
   .option('area', 'area to monitor (required)')
   .option('url', 'Lifx api url', 'https://api.lifx.com/v1/lights/all/state')
-  .option('service-url', 'Pollution data url', 'https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json')
   .option('poll-interval-minutes', 'Poll interval', 60)
   .option('interval', 'Turn on interval', false)
 
@@ -18,7 +18,8 @@ if (!flags.token || !flags.area) {
 }
 
 if (flags.interval) {
-  logger(`Updating every ${flags.pollIntervalMinutes} min`)
+  logger(`Checking pollution data for ${chalk.bold(flags.area)} area`)
+  logger(`Updating every ${chalk.bold(flags.pollIntervalMinutes)} min`)
   cycle(flags)
   setInterval(() => cycle(flags), 1000 * 60 * flags.pollIntervalMinutes)
 } else {

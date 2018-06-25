@@ -35,7 +35,7 @@ const cycle = exports.cycle = async (options = {}) => {
   const opts = Object.assign({}, config, options)
 
   try {
-    const color = await getAreaColor(opts.serviceUrl, opts.area)
+    const color = await getAreaColor('https://s3.eu-central-1.amazonaws.com/luftstatus/areas.json', opts.area)
     await setColor(opts.url, opts.token, color)
   } catch (error) {
     logger(error.message, 'error')
@@ -43,6 +43,7 @@ const cycle = exports.cycle = async (options = {}) => {
 }
 
 if (require.main === module) {
+  logger(`Checking pollution data for ${chalk.bold(config.area)} area`)
   cycle()
   setInterval(() => cycle(), 1000 * 60 * config.pollIntervalMinutes)
 }

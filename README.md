@@ -21,8 +21,16 @@ As long as it runs the script will check the status every `pollIntervalMinutes` 
 
 ## Use with cli
 
+Run once
+
 ```bash
-npx luftstatus-lifx -a Grenland -t <LIFX-TOKEN>
+npx luftstatus-lifx -a grenland -t <LIFX-TOKEN>
+```
+
+Run every 1 minute
+
+```bash
+npx luftstatus-lifx -a bergen -t <LIFX-TOKEN> -i -p 1
 ```
 
 | Option              | Description               |
@@ -32,7 +40,6 @@ npx luftstatus-lifx -a Grenland -t <LIFX-TOKEN>
 | -u, --url           | Lifx api url              |
 | -i, --interval      | Turn on poll interval     |
 | -p, --poll-interval-minutes | Poll interval     |
-| -s, --service-url   | Pollution data url        |
 | -v, --version       | Output the version number |
 | -h, --help          | Display help              |
 
