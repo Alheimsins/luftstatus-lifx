@@ -1,21 +1,11 @@
 const axios = require('axios')
 const config = require('./config')
 
-const hexToName = hex => {
-  switch (hex) {
-    case '6ee86e': return 'green'
-    case 'ff9900': return 'orange'
-    case 'ff0000': return 'red'
-    case '990099': return 'purple'
-    default: return 'white'
-  }
-}
-
 const getAreaColor = exports.getAreaColor = async (url, area) => {
   try {
     const { data } = await axios(url)
     const { color } = data.areas.find(item => item.area.toLowerCase() === area.toLowerCase())
-    return hexToName(color)
+    return color
   } catch (error) {
     console.log(error)
   }
@@ -28,7 +18,7 @@ const setColor = exports.setColor = async (url, token, color) => {
     headers: {
       Authorization: `Bearer ${token}`
     },
-    data: `color=${color}`
+    data: `color=#${color}`
   }
   try {
     await axios(opts)
@@ -38,13 +28,16 @@ const setColor = exports.setColor = async (url, token, color) => {
   }
 }
 
-const cycle = async () => {
+const cycle = exports.cycle = async (options = {}) => {
+  const opts = Object.assign({}, config, options)
+
   try {
-    const color = await getAreaColor(config.SERVICE_URL, config.AREA)
-    await setColor(config.LIGHTS_API, config.LIGTS_API_TOKEN, color)
+    const color = await getAreaColor(opts.serviceUrl, opts.area)
+    await setColor(opts.url, opts.token, color)
   } catch (error) {
     console.log(error)
   }
 }
 
-setInterval(() => cycle(), 1000 * 60 * config.POLL_INTERVAL_MINUTES)
+cycle()
+setInterval(() => cycle(), 1000 * 60 * config.pollIntervalMinutes)
