@@ -25,7 +25,7 @@ const setColor = exports.setColor = async (url, token, color) => {
   }
   try {
     await axios(opts)
-    logger(`Light switched to ${color}`)
+    logger(`Light(s) switched to ${chalk.hex(`#${color}`)(color)}`)
   } catch (error) {
     logger(error.message, 'error')
   }
