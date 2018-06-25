@@ -44,6 +44,10 @@ npx luftstatus-lifx -a bergen -t <LIFX-TOKEN> -i -p 1
 | -h, --help          | Display help              |
 
 
+# Preview
+
+![](https://media.giphy.com/media/2dcLhjkQEdOV0ZL691/giphy.gif)
+
 ## License
 
 [MIT](LICENSE)
