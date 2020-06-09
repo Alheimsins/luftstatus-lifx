@@ -51,6 +51,3 @@ npx luftstatus-lifx -a bergen -t <LIFX-TOKEN> -i -p 1
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of luftstatus-lifx](https://robots.kebabstudios.party/luftstatus-lifx.png "Robohash image of luftstatus-lifx")
-
