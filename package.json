@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/Alheimsins/luftstatus-lifx#readme",
   "devDependencies": {
-    "standard": "14.3.4"
+    "standard": "15.0.0"
   },
   "dependencies": {
     "args": "5.0.1",
